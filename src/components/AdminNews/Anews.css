@@ -1,0 +1,49 @@
+.news {
+  width: 400px;
+  height: 640px;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid;
+  flex: 1;
+  background-color: white;
+}
+.News {
+  padding-left: 1000px;
+  padding-top: -200px;
+  position: fixed;
+}
+.card-img-top {
+  height: 360px;
+  width: 390px;
+}
+.logos {
+  width: 300px;
+  height: 300px;
+  margin-top: -178px;
+  position: inherit;
+  overflow: hidden;
+}
+.search {
+  margin-top: 10px;
+}
+.faq {
+  margin-top: -600px;
+  margin-left: 50px;
+}
+
+.cardd {
+  margin-top: -600px;
+  margin-left: 10px;
+  width: 24rem;
+}
+.btnleft {
+  margin-left: 20px;
+  background-color: #404042;
+}
+.detail {
+  background-color: darkblue;
+  color: white;
+}
+#btnright {
+  margin-left: 35px;
+}

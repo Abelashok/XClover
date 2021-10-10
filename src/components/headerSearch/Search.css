@@ -1,0 +1,55 @@
+.Header {
+  width: 100%;
+  height: 80px;
+  background-color: #404042;
+  position: relative;
+  top: 0;
+  z-index: 100;
+}
+.logo {
+  height: 175px;
+  width: 175px;
+  margin-top: -41px;
+  margin-left: 60px;
+}
+.post__avatar {
+  margin-left: 1204px;
+  margin-top: -110px;
+}
+.post__nam {
+  color: white;
+  margin-top: -42px;
+  margin-left: 1250px;
+}
+.searchBox {
+  background-color: #404042;
+  margin-top: -105px;
+  margin-left: 469px;
+}
+.searchBox1 {
+  width: 450px;
+  height: 44px;
+  background-color: #404042;
+  text-align: center;
+  margin-top: 20px;
+}
+.user {
+  margin-top: 60px;
+}
+.btn222 {
+  right: 47px;
+  margin-top: -35px;
+  margin-left: 600px;
+}
+.btt {
+  width: 200px;
+  height: 200px;
+}
+.userCard {
+  background-color: #ddd9d9;
+  padding-right: 300px;
+}
+.my-card-img {
+  width: 200px;
+  height: 200px;
+}
