@@ -1,6 +1,7 @@
 import React,{useEffect,useContext}  from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import HomeScreen from './screen/HomeScreen';
+import WorkScreen from './screen/WorkScreen';
 import LoginScreen from './screen/LoginScreen';
 import SearchScreen from './screen/SearchScreen';
 import SignupScreen from './screen/SignupScreen';
@@ -30,6 +31,7 @@ function App() {
   return (
     <Router>
       <Route path='/' component={HomeScreen} exact/>
+      <Route path='/work' component={WorkScreen} exact/>
       <Route path='/login' component={LoginScreen}/>
       <Route path='/signup' component={SignupScreen} />
       <Route path='/search' component={SearchScreen}/>

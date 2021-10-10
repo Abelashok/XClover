@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import {useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import Button from '@material-ui/core/Button';
 import './Profile.css'
 import { Firebase } from '../../Firebase'
@@ -34,7 +35,7 @@ function Profile() {
     //       setReviews(snapshot.docs.map((doc)=> doc.data()))      
     //     })
     // },[]) 
-    const handleSubmit = () => history.push('/');
+
     const handleSubmits = () => history.push('/contact');
     // const handleSubmitss = () => history.push('/edit');
     return (
@@ -79,16 +80,9 @@ function Profile() {
                 <div className="row">
                     <div className="col-md-4">
                         <div className="profile-work">
-                        <button  onClick={handleSubmit}>Works</button><br/><br/>
-                            {/* <a href="">Website Link</a><br/>
-                            <a href="">Bootsnipp Profile</a><br/>
-                            <a href="">Bootply Profile</a> */}
+                        <button  ><Link  to={{pathname:"/work", state: {name:`${User.name}`} }}>Works</Link></button><br/><br/>
                             <button  onClick={handleSubmits}>Contact</button>
-                            {/* <a href="">Web Designer</a><br/>
-                            <a href="">Web Developer</a><br/>
-                            <a href="">WordPress</a><br/>
-                            <a href="">WooCommerce</a><br/>
-                            <a href="">PHP, .Net</a><br/> */}
+                           
                         </div>
                     </div>
                     <div className="col-md-8">

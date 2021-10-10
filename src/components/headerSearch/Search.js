@@ -41,7 +41,7 @@ function Search() {
                  <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span>
                  </div>
                  <Link  to={{pathname:"/profile1", state: {id:`${doc.id}`} }}  className="my-card-btn">Details</Link>
-            </div>
+            </div>                                 
         </div>
     </div>
 </div>

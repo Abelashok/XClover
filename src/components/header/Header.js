@@ -60,16 +60,17 @@ function Header() {
         </Col>
         <Col className = 'SA' style={{
           height: '80px',
-          width: '20%',
-          marginTop:'12px'
+          width: '10%',
+          marginTop:'12px',
          }}>
           <Button className="btnleft" variant="contained"  style={{backgroundColor:' #404042'}} onClick={handleClick} ><img className="Himage" src='https://cdn4.iconfinder.com/data/icons/basic-ui-line-3/24/UI-search-512.png' alt='search'/></Button>
         <Button className="btnleft" id="btnright" variant="contained"  style={{backgroundColor:' #404042'}} onClick={handleNotification}><img className="HCimage" src='https://www.pinclipart.com/picdir/big/369-3699390_notification-png-notification-icon-png-free-clipart.png' alt='addPost'/></Button>  
         </Col>
         <Col style={{
           height: '80px',
-          width: '15%'
+          width: '5%'
         }}>
+      
            <button className="header__profile" onClick={hand}>
           <center>
           

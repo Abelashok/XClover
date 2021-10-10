@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import {useHistory,useLocation } from 'react-router-dom';
 // import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 import './Profile.css'
 import { Firebase } from '../../Firebase'
 import { FaStar } from 'react-icons/fa';
@@ -58,8 +59,8 @@ function Profile() {
     //     })
     // },[])  
 
-    const handleSubmit = () => history.push('/');
-    const handleSubmits = () => history.push('/contact');
+    // const handleSubmit = () => history.push({pathname: '/work' ,  state:{ name: `${User.name}` } });
+    const handleSubmits = () => history.push('/contact');    
 
    const sent=(e)=>{
        e.preventDefault();
@@ -116,9 +117,9 @@ function Profile() {
                 <div className="row" style={{maxWidth:'60%'}}>
                     <div className="col-md-4">
                         <div className="profile-work">
-                        <button  onClick={handleSubmit} style={{marginLeft:'-350px'}}>Works</button><br/><br/>
-                           
-                            <button  onClick={handleSubmits} style={{marginLeft:'-350px'}}>Contact</button>
+                        <button  style={{marginLeft:'-350px'}}><Link  to={{pathname:"/work", state: {name:`${User.name}`} }}>Works</Link></button><br/><br/>
+                        {/* onClick={handleSubmit} */}
+                            <button onClick={handleSubmits}  style={{marginLeft:'-350px'}}>Contact</button>
                           
                         </div>
                     </div>
