@@ -8,14 +8,32 @@ function Login() {
   const history = useHistory()
   const [email,setEmail]=useState('')
   const [password,setpassword]=useState('')
+  const [user,setUSER] = useState('')
+  const [User,setUser] = useState('')
+
   const HandleLogin = (e) => {
  e.preventDefault()
  Firebase.auth().signInWithEmailAndPassword(email,password).then(()=>{
    alert('Logged In')
    Firebase.auth().onAuthStateChanged((user)=>{
+    setUSER(user)
     localStorage.setItem('userData', JSON.stringify(user));
+    Firebase.firestore().collection('users').where("id","==",user.uid).get().then((snapshot)=>{
+      snapshot.forEach(function(doc) {
+          console.log(doc.data())
+        setUser(doc.data())
+        if(User.role === 'Photographer') {
+          history.push('/')
+        }
+        if(User.role === 'Admin') {
+          history.push('/admin')
+        }
+      })
+       
+      
+    })
    })
-   history.push('/')
+  
  }).catch((err)=>{
    alert(err.message)
  })

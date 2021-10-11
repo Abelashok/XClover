@@ -36,7 +36,7 @@ function Profile() {
     //     })
     // },[]) 
 
-    const handleSubmits = () => history.push('/contact');
+    // const handleSubmits = () => history.push('/contact');
     // const handleSubmitss = () => history.push('/edit');
     return (
    <center>
@@ -81,7 +81,7 @@ function Profile() {
                     <div className="col-md-4">
                         <div className="profile-work">
                         <button  ><Link  to={{pathname:"/work", state: {name:`${User.name}`} }}>Works</Link></button><br/><br/>
-                            <button  onClick={handleSubmits}>Contact</button>
+                            {/* <button  ><Link to={{pathname:"/contact" , state:{id:`${User.id}`}}}> Contact</Link></button> */}
                            
                         </div>
                     </div>

@@ -119,8 +119,8 @@ function Profile() {
                         <div className="profile-work">
                         <button  style={{marginLeft:'-350px'}}><Link  to={{pathname:"/work", state: {name:`${User.name}`} }}>Works</Link></button><br/><br/>
                         {/* onClick={handleSubmit} */}
-                            <button onClick={handleSubmits}  style={{marginLeft:'-350px'}}>Contact</button>
-                          
+                            {/* <button onClick={handleSubmits}  style={{marginLeft:'-350px'}}>Contact</button> */}
+                            <button  ><Link to={{pathname:"/contact" , state:{id:`${data.state.id}`}}}> Contact</Link></button>
                         </div>
                     </div>
                     <div className="col-md-8">
