@@ -5,14 +5,16 @@ import { Navbar } from 'react-bootstrap'
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import {useHistory } from 'react-router-dom';
+
+import { Firebase } from '../../Firebase'
 import './Aheader.css';
 
 
 function Aheader() {
   const history = useHistory();
-  const handleClick = () => history.push('/search');
+  const handleClick = () => history.push('/search1');
   const handlePost = () => history.push('/photographer');
-  const handleNotification = () => history.push('/customer');
+  const handleNotification = () => history.push('/customer1');
   return (
     <div className='Header'>
       <Row>
@@ -20,7 +22,7 @@ function Aheader() {
           height: '80px',
           width: '20%'
         }}>
-         <LinkContainer to='/'>
+         <LinkContainer to='/admin'>
             <Navbar.Brand>
             <img className="logo" src="https://firebasestorage.googleapis.com/v0/b/photogram-d89a8.appspot.com/o/Project%20-%20Drawing%2015670697147956972453.png?alt=media&token=78c66baf-872c-452b-8570-3e9fbf724618" alt="logo"/>
             </Navbar.Brand>
@@ -45,7 +47,12 @@ function Aheader() {
           height: '80px',
           width: '15%'
         }}>
-         
+          
+          <button  className="header__logout" onClick={()=>{
+         Firebase.auth().signOut();
+         localStorage.removeItem('userData');
+         history.push('/login')
+       }}>Logout</button>
         </Col>
       </Row>
 

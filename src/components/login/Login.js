@@ -22,10 +22,14 @@ function Login() {
       snapshot.forEach(function(doc) {
           console.log(doc.data())
         setUser(doc.data())
-        if(User.role === 'Photographer') {
+        console.log(doc.data().role,'hello')
+        if(doc.data().role === 'Photographer') {
           history.push('/')
         }
-        if(User.role === 'Admin') {
+        else if(doc.data().role === 'Customer') {
+          history.push('/customer')}
+          else{
+        // if(User.role === 'Admin') {
           history.push('/admin')
         }
       })

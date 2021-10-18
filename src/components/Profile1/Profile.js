@@ -60,7 +60,7 @@ function Profile() {
     // },[])  
 
     // const handleSubmit = () => history.push({pathname: '/work' ,  state:{ name: `${User.name}` } });
-    const handleSubmits = () => history.push('/contact');    
+    // const handleSubmits = () => history.push('/contact');    
 
    const sent=(e)=>{
        e.preventDefault();
@@ -120,7 +120,7 @@ function Profile() {
                         <button  style={{marginLeft:'-350px'}}><Link  to={{pathname:"/work", state: {name:`${User.name}`} }}>Works</Link></button><br/><br/>
                         {/* onClick={handleSubmit} */}
                             {/* <button onClick={handleSubmits}  style={{marginLeft:'-350px'}}>Contact</button> */}
-                            <button  ><Link to={{pathname:"/contact" , state:{id:`${data.state.id}`}}}> Contact</Link></button>
+                            <button style={{marginLeft:'-350px'}} ><Link to={{pathname:"/contact" , state:{id:`${data.state.id}`}}}> Contact</Link></button>
                         </div>
                     </div>
                     <div className="col-md-8">

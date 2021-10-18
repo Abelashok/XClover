@@ -1,10 +1,25 @@
-import React from 'react'
-import {useHistory } from 'react-router-dom';
+import React,{useState,useEffect} from 'react'
+import { Firebase } from '../../Firebase'
+import {useHistory ,useLocation} from 'react-router-dom';
+
 
 function Aworks() {
     const history = useHistory();
+    let data = useLocation();
+    const [User,setUser] = useState([])
     const handle = () => history.push('/workdetails');
    
+
+    useEffect(()=>{
+        Firebase.firestore().collection('posts').where("name","==",data.state.name).onSnapshot((snapshot)=>{
+            setUser(snapshot.docs.map(doc => ({
+              id: doc.id,
+              post : doc.data()})
+              ))
+              console.log(User)
+            })
+        },[User,data.state.name])
+
     return (
         <div>
             <h1>Photographer Works</h1>
@@ -17,60 +32,30 @@ function Aworks() {
                         <th/>
                         <th/>
                         <th/>
-                        <th >User Name:Mark</th>
+                        <th >User Name:{data.state.name}</th>
                         <th/>
                         <th/>
                     </tr>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Work id</th>
                         <th scope="col">Caption</th>
                         <th scope="col">Description</th>
+                        <th scope="col">image</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
+                {
+                User.map((doc) => (
                     <tr>
-                        <th scope="row">1</th>
-                        <td>1234235</td>
-                        <td>City Lights</td>
-                        <td>City</td>
+                        <td>{doc.post.caption}</td>
+                        <td>{doc.post.description}</td>
+                        <td ><img style={{width:'50px', height:'50px'}} alt='abel' src={doc.post.imageURL}/></td>
                         <td><button onClick={handle}>View</button></td>
                         <td><button>Delete Post</button></td>
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>1234235</td>
-                        <td>City Lights</td>
-                        <td>City</td>
-                        <td><button>View</button></td>
-                        <td><button>Delete Post</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>1234235</td>
-                        <td>City Lights</td>
-                        <td>City</td>
-                        <td><button>View</button></td>
-                        <td><button>Delete Post</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>1234235</td>
-                        <td>City Lights</td>
-                        <td>City</td>
-                        <td><button>View</button></td>
-                        <td><button>Delete Post</button></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>1234235</td>
-                        <td>City Lights</td>
-                        <td>City</td>
-                        <td><button>View</button></td>
-                        <td><button>Delete Post</button></td>
-                    </tr>
+                ))}
+                
                 </tbody>
             </table>
         </div>

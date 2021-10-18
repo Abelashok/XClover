@@ -7,7 +7,7 @@ function NotificationScreen() {
         <div>
             <Header/>
             <Notification/>
-            <Notification/>
+           
             
             <Footer/>
         </div>

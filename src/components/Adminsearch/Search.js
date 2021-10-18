@@ -15,7 +15,7 @@ function Search() {
   const [post ,setPost] = useState([])
 
   useEffect(()=>{
-      Firebase.firestore().collection('users').where("role","==","Photographer").onSnapshot((snapshot)=>{
+      Firebase.firestore().collection('users').where("role","!=","Admin").onSnapshot((snapshot)=>{
         setPost(snapshot.docs.map(doc => ({
           id: doc.id,
           post : doc.data()})
@@ -24,7 +24,7 @@ function Search() {
     },[])
   return (
     <div>
-     <Header/>
+    
     <div className="userCard">
     <Row >
       {
@@ -40,7 +40,7 @@ function Search() {
                  <div className="star">
                  <span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span> <span class="fa fa-star"></span> <span class="fa fa-star"></span>
                  </div>
-                 <Link  to={{pathname:"/profile1", state: {id:`${doc.id}`} }}  className="my-card-btn">Details</Link>
+                 <Link  to={{pathname:"/profile2", state: {id:`${doc.id}`} }}  className="my-card-btn">Details</Link>
             </div>                                 
         </div>
     </div>

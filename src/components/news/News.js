@@ -1,10 +1,12 @@
-import React from 'react'
-
+import React,{useState,useEffect} from 'react'
+import { Firebase } from '../../Firebase';
 import './News.css'
 
 
 function News() {
 
+
+  
     return (
         <div className="News">
         <div className="news">

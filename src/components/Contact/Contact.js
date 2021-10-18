@@ -6,12 +6,14 @@ import './Contact.css'
 function Contact() {
     const history = useHistory();
     let data = useLocation();
+    var data1 = JSON.parse(localStorage.getItem('userData'))
     console.log(data.state.id)
     const [event,setEvent] = useState('');
     const [date,setDate] = useState('')
     const submit=()=>{
         Firebase.firestore().collection('users').doc(data.state.id).collection("contact").add({
             id:data.state.id,
+            name:data1.displayName,
             event,date
         }).then(()=>{
             history.push('/')
@@ -28,7 +30,7 @@ function Contact() {
              <label for="event_date" style={{marginRight:'400px'}}><h4>Event date</h4></label>
              <input type="date" className="form-control" id="event" style={{border:'3px solid'}}
               value={date} onChange={(e) => setDate(e.target.value)} ></input>
-             <button type="button" className="btn3 btn-block btn-success contact-photo" onClick={submit}>Sent</button>
+             <button type="button" className="btn3 btn-block btn-success contact-photo" >Sent</button>
             </form>
             </div>
         </center>
