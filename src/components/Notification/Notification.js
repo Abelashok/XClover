@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import Avatar from '@material-ui/core/Avatar'
 import './Notification.css'
 // import { Link } from 'react-router-dom'
-import {useHistory } from 'react-router-dom';
+//import {useHistory } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap'
 import { Navbar } from 'react-bootstrap'
 import { Firebase } from '../../Firebase';
@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 
 
 function Notification() {
-  const history = useHistory();
+  //const history = useHistory();
     //const [users,setUser] = useState('')
     const [contact,setContact] = useState([])
     var data = JSON.parse(localStorage.getItem('userData'))
@@ -35,7 +35,7 @@ function Notification() {
   // })
   })
 
-  const reply = () => history.push('/reply');
+ // const reply = () => history.push('/reply');
     return (
         
             <div className="d-flex justify-content-center mt-5">

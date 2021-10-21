@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react'
-import {useHistory,useLocation } from 'react-router-dom';
+import {useLocation } from 'react-router-dom';
 // import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import './Profile.css'
@@ -19,7 +19,8 @@ const styles = {
 }
 
 function Profile() {
-    const history = useHistory();
+    let r=0,c=0,s;
+   // const history = useHistory();
     let data = useLocation();
     console.log(data.state.id);
     const stars = Array(5).fill(0);
@@ -77,7 +78,13 @@ function Profile() {
    <center>
 <div className="container11 emp-profile11 con1">
     <div >
-        
+        <div className="rr">
+    {reviews.map((review)=>(
+        <>
+        {r=r+review.current}{c=c+1}{s=r/c}
+        </>
+      ))}  
+      </div> 
             <form method="post" >
                 <div className="row" style={{padding:'20px'}}>
                     <div className="col-md-4">
@@ -94,7 +101,7 @@ function Profile() {
                                     <h6>
                                         {User.profession}
                                     </h6>
-                                    <p className="proile-rating">RATING : <span>8/10</span></p>
+                                    <p className="proile-rating">RATING : <span>{s}/5</span></p>
                                     
                             <ul className="nav nav-tabs" id="myTab" role="tablist">
                                 <li className="nav-item">
@@ -233,6 +240,7 @@ function Profile() {
                                <h5>{review.name}</h5>
                                 <p>{review.text}</p>
                                 <p>Rating : {review.current}/5</p>
+                               
                                 </div>))}   
                             
                            

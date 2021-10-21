@@ -15,7 +15,7 @@ function Acustomer() {
          })
       },[])
     const history = useHistory();
-    const handle = () => history.push('/profile');
+   // const handle = () => history.push('/profile');
     return (
         <div>
             <h1>Customer</h1>

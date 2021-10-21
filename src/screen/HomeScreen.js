@@ -19,7 +19,7 @@ function HomeScreen() {
     const [image,setImage] = useState(null)
     const [post ,setPost] = useState([])
     const [progress,setProgress] = useState(0)
-
+    var img = JSON.parse(localStorage.getItem('userImage'))
 
     useEffect(()=>{
         Firebase.firestore().collection('posts').orderBy('timestamp','desc').onSnapshot((snapshot)=>{
@@ -59,7 +59,7 @@ function HomeScreen() {
                          Firebase.firestore().collection("posts").add({
                              timestamp:Date.now(),
                              caption : caption,
-                             imageURL:url,location,description,name:user.displayName
+                             imageURL:url,location,description,name:user.displayName,image:img
                          })
 
                          setImage(null);
@@ -92,7 +92,8 @@ function HomeScreen() {
            {
        
        post.map(({id,post}) => (
-         <Post key={id} postId={id} name={post.name} location={post.location} description={post.description} caption={post.caption} imageURL={post.imageURL} />
+           
+         <Post key={id} postId={id} name={post.name} location={post.location} description={post.description} caption={post.caption} imageURL={post.imageURL} image={post.image}/>
          
        ))
      }

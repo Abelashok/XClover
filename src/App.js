@@ -12,6 +12,7 @@ import ProfileScreen from './screen/ProfileScreen';
 import Profile1Screen from './screen/Profile1Screen';
 import Profile2Screen from './screen/Profile2Screen';
 import Profile3Screen from './screen/Profile3Screen';
+import Profile4Screen from './screen/Profile4Screen';
 import ContactScreen from './screen/ContactScreen'
 import EditScreen from './screen/EditScreen';
 import AdminScreen from './screen/AdminScreen';
@@ -49,6 +50,7 @@ function App() {
       <Route path='/profile1' component={Profile1Screen}/>
       <Route path='/profile2' component={Profile2Screen}/>
       <Route path='/profile3' component={Profile3Screen}/>
+      <Route path='/profile4' component={Profile4Screen}/>
       <Route path='/contact' component={ContactScreen}/>
       <Route path='/edit' component={EditScreen} />
       <Route path='/admin' component={AdminScreen}/>

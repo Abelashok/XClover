@@ -18,6 +18,7 @@ function SignUp() {
   const [profession, setProfession] = useState('');
   const [userid, setUserid] = useState('');
   const [image, setImage] = useState('');
+  const [about, setAbout] = useState('');
   const [experience, setExperience] = useState('');
 
 
@@ -29,13 +30,14 @@ function SignUp() {
         Firebase.auth().createUserWithEmailAndPassword(email, password)
           .then((result) => {
             return result.user.updateProfile({
-              displayName: name
+              displayName: name,
+              photoURL: url
             }).then(() => {
               Firebase.firestore().collection('users').add({
                 id: result.user.uid,
                 name, email,
                 imageURL: url,
-                phoneNumber: phoneno, birthdate, role, profession, userid, experience
+                phoneNumber: phoneno, birthdate, role, profession, userid, experience,about
               }).then(() => {
                 history.push('/login')
               })
@@ -80,28 +82,37 @@ function SignUp() {
             <input type="text" className="form-control item" id="phone-number" placeholder="Phone Number"
               value={phoneno} onChange={(e) => setPhoneno(e.target.value)} />
           </div>
-          <div className="form-group">
-            <input type="text" className="form-control item" id="birth-date" placeholder="Birth Date"
-              value={birthdate} onChange={(e) => setBirthdate(e.target.value)} />
-          </div>
-          <div className="form-group">
-            <input type="text" className="form-control item" id="role" placeholder="role(Customer/Photographer)"
-              value={role} onChange={(e) => setRole(e.target.value)} />
-          </div>
-          <div className="form-group">
-            <input type="text" className="form-control item" id="profession" placeholder="Profession"
-              value={profession} onChange={(e) => setProfession(e.target.value)} />
-          </div>
-          <div className="form-group">
+          <div className="form-group" style={{marginLeft:'20px'}}>
+            <label>Choose Image</label><br/>
+
             <input onChange={(e) => { setImage(e.target.files[0]) }} type="file" placeholder="Choose Image"
             />
           </div>
           <div className="form-group">
-            <input type="text" className="form-control item" id="UID" placeholder="User Id"
+        
+            <input type="text" className="form-control item" id="birth-date" placeholder="Birth Date"
+              value={birthdate} onChange={(e) => setBirthdate(e.target.value)} />
+          </div>
+          
+           <input style={{marginLeft:'20px'}} type="radio" id="html" name="fav_language" value="Photographer" onChange={(e) => setRole(e.target.value)}/>
+            <label for="html">Photographer</label>
+            <input style={{marginLeft:'20px'}} type="radio" id="css" name="fav_language" value="Customer" onChange={(e) => setRole(e.target.value)}/>
+            <label for="css">Customer</label>
+          <div className="form-group">
+            <input type="text" disabled={role === 'Customer'} className="form-control item" id="about" placeholder="About You"
+              value={about} onChange={(e) => setAbout(e.target.value)} />
+          </div>
+          <div className="form-group">
+            <input  disabled={role === 'Customer'} type="text" className="form-control item" id="profession" placeholder="Profession"
+              value={profession} onChange={(e) => setProfession(e.target.value)} />
+          </div>
+          
+          <div className="form-group">
+            <input type="text" disabled={role === 'Customer'} className="form-control item" id="UID" placeholder="User Id"
               value={userid} onChange={(e) => setUserid(e.target.value)} />
           </div>
           <div className="form-group">
-            <input type="text" className="form-control item" id="experience" placeholder="Experience"
+            <input type="text" disabled={role === 'Customer'} className="form-control item" id="experience" placeholder="Experience"
               value={experience} onChange={(e) => setExperience(e.target.value)} />
           </div>
 

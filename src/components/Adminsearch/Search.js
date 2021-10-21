@@ -7,7 +7,7 @@ import Row from 'react-bootstrap/Row';
 
 import './Search.css';
 import { Firebase } from '../../Firebase'
-import Header from '../header/Header';
+//import Header from '../header/Header';
 
 
 

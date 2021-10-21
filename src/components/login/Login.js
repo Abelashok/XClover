@@ -20,7 +20,8 @@ function Login() {
     localStorage.setItem('userData', JSON.stringify(user));
     Firebase.firestore().collection('users').where("id","==",user.uid).get().then((snapshot)=>{
       snapshot.forEach(function(doc) {
-          console.log(doc.data())
+          console.log(doc.data().imageURL)
+          localStorage.setItem('userImage', JSON.stringify(doc.data().imageURL));
         setUser(doc.data())
         console.log(doc.data().role,'hello')
         if(doc.data().role === 'Photographer') {

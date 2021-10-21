@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import {useHistory } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 // import Button from '@material-ui/core/Button';
 
 import { Firebase } from '../Firebase'
@@ -9,8 +9,8 @@ import { Firebase } from '../Firebase'
 function Profile() {
 
 
-    const [reviews,setReviews] =useState([]);
-    const history = useHistory();
+  //  const [reviews,setReviews] =useState([]);
+   // const history = useHistory();
   
     var data = JSON.parse(localStorage.getItem('userData'))
     const [User,setUser] = useState('');

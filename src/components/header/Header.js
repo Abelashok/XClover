@@ -1,5 +1,5 @@
 import React from 'react';
-// import Avatar from '@material-ui/core/Avatar'
+ import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button';
 import { LinkContainer } from 'react-router-bootstrap'
 import { Navbar } from 'react-bootstrap'
@@ -19,6 +19,8 @@ function Header() {
   const hand = () => history.push('/profile');
   const handleNotification = () => history.push('/notification');
   var data = JSON.parse(localStorage.getItem('userData'))
+  var img = JSON.parse(localStorage.getItem('userImage'))
+  console.log(data,'data')
 //   if(user){
 
 //   Firebase.firestore().collection('users').where("email","==",user.email).get().then((snapshot)=>{
@@ -68,13 +70,14 @@ function Header() {
         </Col>
         <Col style={{
           height: '80px',
-          width: '5%'
+          width: '5%',
+          marginTop:'-25px'
         }}>
       
            <button className="header__profile" onClick={hand}>
           <center>
           
-             {/* <Avatar className="post__avatars" alt="Abel" src={User.imageURL} />  */}
+             <Avatar className="post__avatars" alt="Abel" src={img} /> 
              <h3 className="post__na">{data.displayName}</h3>
             
           </center>
@@ -82,6 +85,7 @@ function Header() {
           <button  className="header__logout" onClick={()=>{
          Firebase.auth().signOut();
          localStorage.removeItem('userData');
+         localStorage.removeItem('userImage');
          history.push('/login')
        }}>Logout</button>
         </Col>

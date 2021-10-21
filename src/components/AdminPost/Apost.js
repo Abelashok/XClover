@@ -1,8 +1,8 @@
 
 import './Apost.css'
-
-import React from 'react'
-// import Avatar from '@material-ui/core/Avatar'
+import { Firebase } from '../../Firebase';
+import React,{useState,useEffect} from 'react'
+import Avatar from '@material-ui/core/Avatar'
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Favorite from '@material-ui/icons/Favorite';
@@ -13,8 +13,31 @@ import { Navbar } from 'react-bootstrap'
 
 
 
-function Apost({postId,name,caption,description,imageURL,location}) {
-
+function Apost({postId,name,caption,description,imageURL,location,image}) {
+    const [comments,setComments] = useState([]);
+   // const [comment,setComment] = useState('');
+   // const {user} = useContext(AuthContext)
+   
+   useEffect(()=>{
+        //let unsubscribe;
+       if(postId) {
+           console.log(postId)
+       Firebase.firestore().collection("posts").doc(postId).collection("comments").orderBy('timestamp','desc').onSnapshot((snapshot)=>{
+        setComments(snapshot.docs.map(doc => ({
+          com : doc.data()})
+          ))
+       })
+            // console.log(snapshot.data())
+            // setComments(snapshot.docs.map(doc => {
+            //     console.log("hello1")
+            //     doc.data()}))
+            
+       }
+    //    return () => {
+    //      unsubscribe();
+    //    };
+      
+   },[postId]);
 
     return (
         <div className="post12">
@@ -22,7 +45,7 @@ function Apost({postId,name,caption,description,imageURL,location}) {
                     <div className="post__header12">
                      <LinkContainer to='/profile'>
                         <Navbar.Brand >
-                        {/* <Avatar className="post__avatar12" alt="Abel" src=""/> */}
+                        <Avatar className="post__avatar12" alt="Abel" src={image}/>
                          <h3 className="post-name12">{name}</h3>
                          <br/>
                          <h5 className="post_location12" >{location}</h5>
@@ -46,21 +69,15 @@ function Apost({postId,name,caption,description,imageURL,location}) {
                 <p className="txt4">{caption}</p>
                 <p className="txt5">{description}</p>
                 </div>
-                    {/* {username and caption} */}
-                    {/* <div className="comm"> */}
-                    
-                    {/* <div className="post__comments">
-                       {
-                           
-                           comments.map((comment)=>{
-                            console.log(comment)
-                               return<p>
-                                   <strong>{comment.name}</strong>{comment.text}
+                <div className="post__comments">
+                        {
+                        comments.map(({com})=>(
+                                <p>
+                                   <strong>{com.username}</strong>{com.text}
                                </p>    
-                           }
-                           )
+                        )) 
                        }
-                     </div>   */}
+                     </div> 
                          
                    {/* <form className="post__commentbox" >
                         <input type="text" className="post__input" 

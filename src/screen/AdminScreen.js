@@ -23,7 +23,7 @@ function AdminScreen() {
            {
        
        post.map(({id,post}) => (
-         <Apost key={id} postId={id} name={post.name} location={post.location} description={post.description} caption={post.caption} imageURL={post.imageURL} />
+         <Apost key={id} postId={id} name={post.name} location={post.location} description={post.description} caption={post.caption} imageURL={post.imageURL} image={post.image} />
          
        ))
      }
