@@ -16,7 +16,7 @@ function SignUp() {
   const [birthdate, setBirthdate] = useState('');
   const [role, setRole] = useState('');
   const [profession, setProfession] = useState('');
-  const [userid, setUserid] = useState('');
+ // const [userid, setUserid] = useState('');
   const [image, setImage] = useState('');
   const [about, setAbout] = useState('');
   const [experience, setExperience] = useState('');
@@ -37,7 +37,7 @@ function SignUp() {
                 id: result.user.uid,
                 name, email,
                 imageURL: url,
-                phoneNumber: phoneno, birthdate, role, profession, userid, experience,about
+                phoneNumber: phoneno, birthdate, role, profession, experience,about
               }).then(() => {
                 history.push('/login')
               })
@@ -107,10 +107,7 @@ function SignUp() {
               value={profession} onChange={(e) => setProfession(e.target.value)} />
           </div>
           
-          <div className="form-group">
-            <input type="text" disabled={role === 'Customer'} className="form-control item" id="UID" placeholder="User Id"
-              value={userid} onChange={(e) => setUserid(e.target.value)} />
-          </div>
+         
           <div className="form-group">
             <input type="text" disabled={role === 'Customer'} className="form-control item" id="experience" placeholder="Experience"
               value={experience} onChange={(e) => setExperience(e.target.value)} />

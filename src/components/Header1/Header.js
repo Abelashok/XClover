@@ -15,9 +15,9 @@ function Header() {
   const history = useHistory();
   // const {user} = useContext(AuthContext)
   // const [User,setUser] = useState('')
-  const handleClick = () => history.push('/search');
+  const handleClick = () => history.push('/search2');
   const hand = () => history.push('/profile3');
-  const handleNotification = () => history.push('/notification');
+  const handleNotification = () => history.push('/notification1');
   var data = JSON.parse(localStorage.getItem('userData'))
   var img = JSON.parse(localStorage.getItem('userImage'))
 //   if(user){
@@ -47,7 +47,7 @@ function Header() {
           height: '80px',
           width: '20%'
         }}>
-         <LinkContainer to='/'>
+         <LinkContainer to='/Customer'>
             <Navbar.Brand>
             <img className="logo" src="https://firebasestorage.googleapis.com/v0/b/photogram-d89a8.appspot.com/o/Project%20-%20Drawing%2015670697147956972453.png?alt=media&token=78c66baf-872c-452b-8570-3e9fbf724618" alt="logo"/>
             </Navbar.Brand>

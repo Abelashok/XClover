@@ -83,7 +83,7 @@ function WorkScreen() {
            {
        
        post.map(({id,post}) => (
-         <Post key={id} postId={id} name={post.name} location={post.location} description={post.description} caption={post.caption} imageURL={post.imageURL} />
+         <Post key={id} postId={id} name={post.name} location={post.location} description={post.description} caption={post.caption} imageURL={post.imageURL}  image={post.image}/>
          
        ))
      }

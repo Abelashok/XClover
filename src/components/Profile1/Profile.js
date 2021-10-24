@@ -133,12 +133,12 @@ function Profile() {
                     <div className="col-md-8">
                         <div className="tab-content profile-tab" id="myTabContent">
                             <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <div className="row">
+                            <div className="row">
                                             <div className="col-md-6">
-                                                <label>User Id</label>
+                                                <label>Phone Number</label>
                                             </div>
                                             <div className="col-md-6">
-                                                <p>{User.userid}</p>
+                                                <p>{User.phoneNumber}</p>
                                             </div>
                                         </div>
                                         <div className="row">
@@ -167,7 +167,7 @@ function Profile() {
                                         </div>
                             </div>
                             <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        <div className="row">
+                            <div className="row">
                                             <div className="col-md-6">
                                                 <label>Experience</label>
                                             </div>
@@ -177,27 +177,18 @@ function Profile() {
                                         </div>
                                         <div className="row">
                                             <div className="col-md-6">
-                                                <label>Hourly Rate</label>
+                                                <label>About</label>
                                             </div>
                                             <div className="col-md-6">
-                                                <p>10$/hr</p>
+                                                <p>{User.about}</p>
                                             </div>
                                         </div>
                                         <div className="row">
                                             <div className="col-md-6">
-                                                <label>Total Works</label>
+                                                <label>Birthdate</label>
                                             </div>
                                             <div className="col-md-6">
-                                                <p>23</p>
-                                            </div>
-                                        </div>
-                                        
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>Availability</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>Yes</p>
+                                                <p>{User.birthdate}</p>
                                             </div>
                                         </div>
                             </div>

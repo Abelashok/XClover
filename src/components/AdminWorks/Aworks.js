@@ -16,7 +16,7 @@ function Aworks() {
               id: doc.id,
               post : doc.data()})
               ))
-              console.log(User)
+             // console.log(User)
             })
         },[User,data.state.name])
 
@@ -52,7 +52,15 @@ function Aworks() {
                         <td>{doc.post.description}</td>
                         <td ><img style={{width:'50px', height:'50px'}} alt='abel' src={doc.post.imageURL}/></td>
                         <td><button onClick={handle}>View</button></td>
-                        <td><button>Delete Post</button></td>
+                        <td><button onClick={()=>{
+                           Firebase.firestore().collection('users').where("email","==",doc.post.email).get().then((snapshot)=>{
+                            snapshot.forEach(function(doc) {
+                               doc.ref.delete();
+                             
+                            })  
+                        })
+                        
+                        }}>Delete Post</button></td>
                     </tr>
                 ))}
                 

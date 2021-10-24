@@ -3,7 +3,7 @@
   height: 640px;
   flex-direction: row;
   justify-content: space-between;
-  border: 1px solid;
+
   flex: 1;
   background-color: white;
 }

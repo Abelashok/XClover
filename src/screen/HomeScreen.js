@@ -32,7 +32,7 @@ function HomeScreen() {
 
     
     var data = JSON.parse(localStorage.getItem('userData'))
-
+     
     const handleChange=(e)=>{
        if(e.target.files[0]){
            setImage(e.target.files[0])
@@ -59,7 +59,7 @@ function HomeScreen() {
                          Firebase.firestore().collection("posts").add({
                              timestamp:Date.now(),
                              caption : caption,
-                             imageURL:url,location,description,name:user.displayName,image:img
+                             imageURL:url,location,description,name:user.displayName,image:img,email:data.email
                          })
 
                          setImage(null);

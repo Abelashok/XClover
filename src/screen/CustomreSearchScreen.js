@@ -9,8 +9,9 @@ import {useHistory} from 'react-router-dom'
 import './HomeScreen.css'
 // import { AuthContext } from '../Context';
 import Header from '../components/Header1/Header'
+import Search from '../components/Search/Search'
 
-function CustomerHomeScreen() {
+function CustomerSearchScreen() {
     const history = useHistory()
   //  const {user} = useContext(AuthContext)
 
@@ -36,16 +37,7 @@ function CustomerHomeScreen() {
              {data?
              <>
              <Header/>
-           <News/>
-    
-    
-           {
-       
-       post.map(({id,post}) => (
-         <Post key={id} postId={id} name={post.name} location={post.location} description={post.description} caption={post.caption} imageURL={post.imageURL} image={post.image}/>
-         
-       ))
-     }
+             <Search/>
              <Footer/>
              </>
              :history.push('/login')
@@ -54,4 +46,4 @@ function CustomerHomeScreen() {
     )
 }
 
-export default CustomerHomeScreen
+export default CustomerSearchScreen

@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
  import Avatar from '@material-ui/core/Avatar'
 import Button from '@material-ui/core/Button';
 import { LinkContainer } from 'react-router-bootstrap'
@@ -15,10 +15,25 @@ function Header() {
   const history = useHistory();
   // const {user} = useContext(AuthContext)
   // const [User,setUser] = useState('')
-  const handleClick = () => history.push('/search');
-  const hand = () => history.push('/profile');
-  const handleNotification = () => history.push('/notification');
+  const [id1,setId] = useState('');
   var data = JSON.parse(localStorage.getItem('userData'))
+  useEffect(()=>{
+    Firebase.firestore().collection('users').where("email","==",data.email).get().then((snapshot)=>{
+      snapshot.forEach(function(doc) {
+      
+        setId(doc.id)
+      
+      })
+    })
+  })
+  const handleClick = () => history.push('/search');
+  const hand = () =>history.push({
+    pathname: '/profile3',
+   
+    state:   {id:`${id1}`} 
+  })
+  const handleNotification = () => history.push('/notification');
+  
   var img = JSON.parse(localStorage.getItem('userImage'))
 //   if(user){
 

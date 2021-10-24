@@ -83,14 +83,7 @@ function Profile() {
                     <div className="col-md-8">
                         <div className="tab-content profile-tab" id="myTabContent">
                             <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab" style={{marginTop:'-100px',marginRight:'200px'}}>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>User Id</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>{User.userid}</p>
-                                            </div>
-                                        </div>
+                                        
                                         <div className="row">
                                             <div className="col-md-6">
                                                 <label>Name</label>
@@ -109,10 +102,18 @@ function Profile() {
                                         </div>
                                         <div className="row">
                                             <div className="col-md-6">
-                                                <label>Profession</label>
+                                                <label>Email</label>
                                             </div>
                                             <div className="col-md-6">
-                                                <p>{User.profession}</p>
+                                                <p>{User.email}</p>
+                                            </div>
+                                        </div>
+                                        <div className="row">
+                                            <div className="col-md-6">
+                                                <label>Phone Number</label>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <p>{User.phoneNumber}</p>
                                             </div>
                                         </div>
                             </div>

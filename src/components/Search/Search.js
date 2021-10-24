@@ -5,9 +5,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
-import './Search.css';
+//import './Search.css';
 import { Firebase } from '../../Firebase'
-import Header from '../header/Header';
+
 
 
 
@@ -24,7 +24,7 @@ function Search() {
     },[])
   return (
     <div>
-     <Header/>
+     
     <div className="userCard">
     <Row style={{    width: '1520px',
     marginLeft: '22px'}}>

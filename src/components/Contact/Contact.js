@@ -30,7 +30,7 @@ function Contact() {
              <label for="event_date" style={{marginRight:'400px'}}><h4>Event date</h4></label>
              <input type="date" className="form-control" id="event" style={{border:'3px solid'}}
               value={date} onChange={(e) => setDate(e.target.value)} ></input>
-             <button type="button" className="btn3 btn-block btn-success contact-photo" >Sent</button>
+             <button type="button" className="btn3 btn-block btn-success contact-photo" onClick={submit} >Sent</button>
             </form>
             </div>
         </center>

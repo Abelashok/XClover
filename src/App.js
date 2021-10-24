@@ -24,6 +24,8 @@ import AdminViewWorks from './screen/AdminViewWorks';
 import {AuthContext} from './Context'
 import {Firebase} from './Firebase'
 import ReplyScreen from './screen/ReplyScreen';
+import CustomerSearchScreen from './screen/CustomreSearchScreen';
+import CustomerNotificationScreen from './screen/CustomerNotificationScreen';
 
 function App() {
   const {setUser} = useContext(AuthContext)
@@ -43,9 +45,11 @@ function App() {
       <Route path='/reply' component={ReplyScreen}/>
       <Route path='/signup' component={SignupScreen} />
       <Route path='/search' component={SearchScreen}/>
+      <Route path='/search2' component={CustomerSearchScreen}/>
       <Route path='/search1' component={AdminSearchScreen}/>
       <Route path='/create' component={CreatePostScreen}/>
       <Route path='/notification' component={NotificationScreen}/>
+      <Route path='/notification1' component={CustomerNotificationScreen}/>
       <Route path='/profile' component={ProfileScreen}/>
       <Route path='/profile1' component={Profile1Screen}/>
       <Route path='/profile2' component={Profile2Screen}/>

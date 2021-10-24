@@ -1,9 +1,5 @@
 import React,{useEffect,useState,useContext} from 'react'
 import Avatar from '@material-ui/core/Avatar'
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Favorite from '@material-ui/icons/Favorite';
-import FavoriteBorder from '@material-ui/icons/FavoriteBorder';
 import { LinkContainer } from 'react-router-bootstrap'
 import { Navbar } from 'react-bootstrap'
 import { AuthContext } from '../../Context';
@@ -64,16 +60,16 @@ function Post({postId,name,caption,description,imageURL,location,image}) {
                      alt="" />
                     {/* {image} */}
                     <div className="like">
-                <FormControlLabel 
+                {/* <FormControlLabel 
                     control={<Checkbox icon={<FavoriteBorder fontSize="large" />} 
                             checkedIcon={<Favorite fontSize="large" />}
-                    //   onClick={setLike(true)}  
+                   
                     name="checkedH" />}
                     label="56"
-                />
+                /> */}
                 {/* {console.log(like)} */}
                 </div>
-                <div className="cap">
+                <div className="cap" style={{marginTop:'50px'}}>
                 <p className="txt4">{caption}</p>
                 <p className="txt5">{description}</p>
                 </div>
@@ -86,7 +82,7 @@ function Post({postId,name,caption,description,imageURL,location,image}) {
                         {
                         comments.map(({com})=>(
                                 <p>
-                                   <strong>{com.username}</strong>{com.text}
+                                   <strong>{com.username}</strong>:<p style={{marginLeft:'45px', marginTop:'-22px'}}>{com.text}</p>
                                </p>    
                         )) 
                        }
